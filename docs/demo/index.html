@@ -1,0 +1,27 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>InterceptIQ Demo</title>
+  <style>
+    body{font-family:Inter,Arial,sans-serif;background:#0b1020;color:#eaf0ff;margin:0;padding:40px}
+    .card{background:#151b31;border:1px solid #2a355f;border-radius:16px;padding:24px;margin:16px 0;box-shadow:0 10px 30px #0005}
+    .grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+    .metric{font-size:32px;font-weight:800;color:#70e1ff}
+    .pill{display:inline-block;background:#24345f;color:#9ee7ff;padding:6px 10px;border-radius:999px;margin:4px}
+    code{color:#a8ffb0}
+  </style>
+</head>
+<body>
+  <h1>InterceptIQ</h1>
+  <p>JSON-first intercept analysis pipeline for scraper and bot builders.</p>
+  <div class="grid">
+    <div class="card"><div class="metric">3</div><div>Captured endpoints</div></div>
+    <div class="card"><div class="metric">12</div><div>Selector hints</div></div>
+    <div class="card"><div class="metric">JSON</div><div>Debug artifacts</div></div>
+    <div class="card"><div class="metric">JSONL</div><div>Record streams</div></div>
+  </div>
+  <div class="card"><h2>Pipeline</h2><span class="pill">payload-analyze</span><span class="pill">dom-analyze</span><span class="pill">replay-generate</span><span class="pill">jsonl-dedupe</span></div>
+  <div class="card"><h2>Generated Replay Plan</h2><pre><code>{ "ok": true, "selected_endpoint": "POST /api/search", "outputs": ["replay-plan.json", "items.jsonl"] }</code></pre></div>
+</body>
+</html>

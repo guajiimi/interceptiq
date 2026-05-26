@@ -1,0 +1,22 @@
+{
+  "ok": true,
+  "target": "https://example.test",
+  "summary": {"http_entries": 3},
+  "dom_snapshot": {
+    "url": "https://example.test",
+    "html": "<html><body><form action='/search'><input name='q'><button data-testid='search-button'>Search</button></form><a href='/docs'>Docs</a><img src='/logo.png' alt='Logo'></body></html>"
+  },
+  "frames": [],
+  "endpoints": [
+    {
+      "request": {
+        "method": "POST",
+        "url": "https://example.test/api/search",
+        "headers": {"content-type": "application/json", "authorization": "[REDACTED]"},
+        "body": {"q": "agent", "timestamp": 1760000000, "signature": "abc123"}
+      },
+      "response": {"status": 200, "content_type": "application/json", "body": {"items": []}}
+    }
+  ],
+  "entries": []
+}

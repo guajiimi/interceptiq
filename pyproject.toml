@@ -1,0 +1,23 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "interceptiq"
+version = "0.1.0"
+description = "JSON-first web interception analysis toolkit for scraper and bot builders"
+readme = "README.md"
+requires-python = ">=3.10"
+license = {text = "MIT"}
+authors = [{name = "Jimixz"}]
+keywords = ["scraping", "json", "automation", "bot", "playwright", "websocket"]
+dependencies = []
+
+[project.optional-dependencies]
+dev = ["pytest>=8"]
+
+[project.scripts]
+interceptiq = "interceptiq.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
