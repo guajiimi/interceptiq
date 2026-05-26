@@ -5,6 +5,7 @@ from .payload_analyze import analyze_intercept as payload_analyze
 from .dom_analyze import analyze_intercept as dom_analyze
 from .replay_generate import generate as replay_generate
 from .jsonl_pipeline import dedupe_jsonl
+from .agent_report import build_agent_brief
 
 
 def load_json(path):
@@ -40,6 +41,10 @@ def main(argv=None):
     jsonl.add_argument("--key", default="id")
     jsonl.add_argument("--out", required=True)
 
+    brief = sub.add_parser("agent-brief")
+    brief.add_argument("intercept_json")
+    brief.add_argument("-o", "--output")
+
     args = parser.parse_args(argv)
     if args.cmd == "payload-analyze":
         dump(payload_analyze(load_json(args.intercept_json)), args.output)
@@ -49,6 +54,8 @@ def main(argv=None):
         dump(replay_generate(load_json(args.intercept_json), args.out_dir))
     elif args.cmd == "jsonl-dedupe":
         dump(dedupe_jsonl(args.jsonl, args.key, args.out))
+    elif args.cmd == "agent-brief":
+        dump(build_agent_brief(load_json(args.intercept_json)), args.output)
 
 
 if __name__ == "__main__":

@@ -1,8 +1,10 @@
 # InterceptIQ
 
-InterceptIQ is a JSON-first analysis toolkit for turning browser/network capture artifacts into practical scraper and bot-building assets.
+InterceptIQ is a JSON-first AI-agent workflow toolkit for turning browser/network capture artifacts into practical scraper and bot-building assets.
 
-It focuses on the workflow developers actually need after intercepting a website:
+It is designed for AI coding agents that need structured context before they can build automation. Instead of handing an agent messy browser logs, InterceptIQ converts capture data into machine-readable JSON briefs, payload findings, DOM selector hints, replay plans, and JSONL record streams.
+
+It focuses on the workflow developers and agents actually need after intercepting a website:
 
 1. Understand which endpoints matter.
 2. Identify payload formats and signing/encryption clues.
@@ -17,6 +19,7 @@ It focuses on the workflow developers actually need after intercepting a website
 - Payload analysis: JSON, form data, base64/base64url, gzip hints, hex/hash-like values, crypto/signature keywords.
 - DOM analysis: links, images, forms, inputs, tables, iframe/frame previews, visible text, selector hints.
 - Replay generation: produces a `replay-plan.json` and a starter Python scraper using safe header templates.
+- Agent brief generation: creates an `agent-brief.json` with AI-agent goals, endpoint cards, next steps, and a ready-to-use agent prompt.
 - JSONL utilities: append-friendly data pipeline with key-based deduplication.
 - Zero database overhead: JSON for debug/config/analysis, JSONL for record streams.
 
@@ -27,12 +30,17 @@ python -m pip install -e .
 interceptiq payload-analyze examples/intercept.example.json
 interceptiq dom-analyze examples/intercept.example.json
 interceptiq replay-generate examples/intercept.example.json --out-dir /tmp/interceptiq-replay
+interceptiq agent-brief examples/intercept.example.json -o /tmp/agent-brief.json
 interceptiq jsonl-dedupe examples/items.raw.jsonl --key id --out /tmp/items.clean.jsonl
 ```
 
 ## Demo Dashboard
 
 Open `docs/demo/index.html` in a browser to see a static visual summary of the pipeline.
+
+## AI Agent Workflow
+
+See `docs/agent-workflow.md`. The `agent-brief` command creates a JSON task brief that can be pasted into Codex, Claude Code, Hermes Agent, or another AI coding agent as structured implementation context.
 
 ## Project Structure
 
@@ -42,6 +50,7 @@ src/interceptiq/
   payload_analyze.py
   dom_analyze.py
   replay_generate.py
+  agent_report.py
   jsonl_pipeline.py
 examples/
   intercept.example.json
