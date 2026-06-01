@@ -4,17 +4,37 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "interceptiq"
-version = "0.1.0"
-description = "JSON-first web interception analysis toolkit for scraper and bot builders"
+version = "0.2.0"
+description = "JSON-first web interception analysis toolkit for AI coding agents"
 readme = "README.md"
 requires-python = ">=3.10"
 license = {text = "MIT"}
 authors = [{name = "Jimixz"}]
-keywords = ["scraping", "json", "automation", "bot", "playwright", "websocket"]
+keywords = ["scraping", "json", "automation", "ai-agents", "web-interception", "playwright", "har", "websocket"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Topic :: Internet :: WWW/HTTP :: HTTP Servers",
+    "Topic :: Scientific/Engineering :: Information Analysis",
+]
 dependencies = []
 
 [project.optional-dependencies]
 dev = ["pytest>=8"]
+
+[project.urls]
+Homepage = "https://github.com/guajiimi/interceptiq"
+Repository = "https://github.com/guajiimi/interceptiq"
+Issues = "https://github.com/guajiimi/interceptiq/issues"
+Documentation = "https://github.com/guajiimi/interceptiq/tree/main/docs"
 
 [project.scripts]
 interceptiq = "interceptiq.cli:main"
